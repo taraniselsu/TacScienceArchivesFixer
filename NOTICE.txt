@@ -1,5 +1,5 @@
-TAC Archives Fixer
-Copyright 2013 Taranis Elsu
+TAC Science Archives Fixer
+Copyright 2015 Taranis Elsu
 
 This product includes software developed by
 Taranis Elsu (https://github.com/taraniselsu),

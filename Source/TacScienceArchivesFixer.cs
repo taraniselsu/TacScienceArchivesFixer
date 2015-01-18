@@ -1,11 +1,11 @@
 ﻿/**
- * TacArchivesFixer.cs
+ * TacScienceArchivesFixer.cs
  * 
- * Thunder Aerospace Corporation's Archives Fixer for the Kerbal Space Program, by Taranis Elsu
+ * Thunder Aerospace Corporation's Science Archives Fixer for the Kerbal Space Program, by Taranis Elsu
  * 
  * (C) Copyright 2015, Taranis Elsu
  * 
- * Kerbal Space Program is Copyright (C) 2013 Squad. See http://kerbalspaceprogram.com/. This
+ * Kerbal Space Program is Copyright (C) 2015 Squad. See http://kerbalspaceprogram.com/. This
  * project is in no way associated with nor endorsed by Squad.
  * 
  * This code is licensed under the Apache License Version 2.0. See the LICENSE.txt and NOTICE.txt
@@ -27,10 +27,8 @@ using UnityEngine;
 namespace Tac
 {
     [KSPAddon(KSPAddon.Startup.SpaceCentre, false)]
-    public class TacArchivesFixer : MonoBehaviour
+    public class TacScienceArchivesFixer : MonoBehaviour
     {
-        private bool done = false;
-
         void Awake()
         {
             this.Log("Awake");
@@ -43,7 +41,7 @@ namespace Tac
 
         void Update()
         {
-            if (!done && ResearchAndDevelopment.Instance != null)
+            if (ResearchAndDevelopment.Instance != null)
             {
                 this.Log("Start processing");
 
@@ -60,7 +58,8 @@ namespace Tac
                     this.Log("Done processing");
                 }
 
-                done = true;
+                // Whether it succeeded or not, there is no need to hang around.
+                Destroy(this);
             }
         }
 

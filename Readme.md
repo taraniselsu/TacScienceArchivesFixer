@@ -1,34 +1,26 @@
-TAC Archives Fixer
+TAC Science Archives Fixer
 ================
 
-A simple Archives Fixer from Thunder Aerospace Corporation.
+A simple Science Archives Fixer from Thunder Aerospace Corporation.
 
 For use with the Kerbal Space Program, http://kerbalspaceprogram.com/
 
 Licensed under the Apache License Version 2.0.  See the LICENSE.txt and NOTICE.txt files.
 
-Source code can be found at https://github.com/taraniselsu/TacArchivesFixer
+Source code can be found at https://github.com/taraniselsu/TacScienceArchivesFixer
 
 
 ### Features
-- Displays information during flight about the current vessel's orbit: apoapsis, periapsis, time to apoapsis, time to periapsis, orbital period, inclination, altitude.
-- The altitude is measured above the surface of the planet, either the terrain or the ocean surface -- whichever is closer.
-- Also shows the current biome.
-- Unlocks in Career mode with the discovery of Basic Rocketry.
-- Does not require any parts.
-- Works during EVA!
+- Deletes all science entries with no science earned on that subject. Fixes a bug in KSP where it
+  can have many extra entries, some of which are not even possible -- like science from the
+  Mun's upper atmosphere.
 
 
 ### Installation instructions
 - Unzip to the KSP directory.
 
-The following files should be in the given locations:
-{KSP}/GameData/ThunderAerospace/TacArchivesFixer/TacArchivesFixer.dll
-{KSP}/GameData/ThunderAerospace/TacArchivesFixer/PluginData/TacArchivesFixer/resize.png
-
-The following file will be created after launching your first spacecraft:
-{KSP}/GameData/ThunderAerospace/TacArchivesFixer/PluginData/TacArchivesFixer/FlightComputer.cfg
-
+The following file(s) should be in the given locations:
+{KSP}/GameData/TacScienceArchivesFixer/TacScienceArchivesFixer.dll
 
 
 Note that Thunder Aerospace Corporation is a ficticious entity created for entertainment

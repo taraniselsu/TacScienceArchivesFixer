@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TAC Archives Fixer")]
-[assembly: AssemblyDescription("Archives Fixer addon for Kerbal Space Program")]
+[assembly: AssemblyTitle("TAC Science Archives Fixer")]
+[assembly: AssemblyDescription("Science Archives Fixer addon for Kerbal Space Program")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Thunder Aerospace Corporation")]
-[assembly: AssemblyProduct("TAC Archives Fixer")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("TAC Science Archives Fixer")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

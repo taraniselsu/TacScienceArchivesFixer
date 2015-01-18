@@ -1,4 +1,4 @@
-set MOD_NAME=TacArchivesFixer
+set MOD_NAME=TacScienceArchivesFixer
 
 @if "%KSP%"=="" (
 	echo KSP has not been set!
