@@ -20,6 +20,7 @@ using KSP.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -44,15 +45,19 @@ namespace Tac
         {
             if (!done && ResearchAndDevelopment.Instance != null)
             {
-                List<ScienceSubject> subjects = ResearchAndDevelopment.GetSubjects();
-                for (int i = subjects.Count; i == 0; --i)
+                this.Log("Start processing");
+
+                Dictionary<string, ScienceSubject> scienceSubjects = GetScienceSubjects();
+                if (scienceSubjects != null)
                 {
-                    ScienceSubject s = subjects[i];
-                    if (s.science == 0.0f)
+                    List<String> subjects = scienceSubjects.Where(w => w.Value.science == 0.0f).Select(w => w.Key).ToList();
+                    foreach (String subject in subjects)
                     {
-                        this.LogWarning("Deleting ScienceSubject: " + s.title + " (" + s.id + ") because it has zero science.");
-                        subjects.RemoveAt(i);
+                        this.LogWarning("Deleting ScienceSubject \"" + subject + "\" because it has zero science.");
+                        scienceSubjects.Remove(subject);
                     }
+
+                    this.Log("Done processing");
                 }
 
                 done = true;
@@ -62,6 +67,24 @@ namespace Tac
         void OnDestroy()
         {
             this.Log("OnDestroy");
+        }
+
+        private Dictionary<string, ScienceSubject> GetScienceSubjects()
+        {
+            this.Log("Looking for field of type=" + typeof(Dictionary<string, ScienceSubject>));
+            var rnd = ResearchAndDevelopment.Instance;
+            var fields = rnd.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (var field in fields)
+            {
+                if (field.FieldType == typeof(Dictionary<string, ScienceSubject>))
+                {
+                    this.Log("Found it: name=" + field.Name + ", type=" + field.FieldType);
+                    return field.GetValue(rnd) as Dictionary<string, ScienceSubject>;
+                }
+            }
+
+            this.LogWarning("ScienceSubject dictionary not found.");
+            return null;
         }
     }
 }
